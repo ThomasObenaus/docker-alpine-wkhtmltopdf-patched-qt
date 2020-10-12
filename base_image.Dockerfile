@@ -18,6 +18,8 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 	&& cd /tmp/wkhtmltopdf/qt \
 	&& git checkout wk_4.8.7 && git reset --hard 5db36ec
 
+# revision 6a57c14 is tag 0.12.6 (https://github.com/wkhtmltopdf/wkhtmltopdf/commit/6a57c1449797d6cb915921fb747f3ac36199241f)
+# revision 5db36ec is on a fork of qt (https://github.com/wkhtmltopdf/qt/commit/5db36ec76b29712eb2c5bd0625c2c77d7468b3fc)
 COPY conf/* /tmp/wkhtmltopdf/qt/
 
 RUN	cd /tmp/wkhtmltopdf/qt && \
