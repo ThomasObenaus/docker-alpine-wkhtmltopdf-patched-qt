@@ -7,7 +7,8 @@ help: ## Prints the help
 
 build.golang-alpine: sep ## Builds the golang-alpine image with wkhtmltopdf (with patched qt) in version 0.12.6
 	@echo "--> Build thobe/wkhtmltopdf:$(tag) Docker image"
-	@docker build -f golang_alpine.Dockerfile -t thobe/wkhtmltopdf:$(tag) .
+	@docker build -f golang_alpine.Dockerfile -t thobe/wkhtmltopdf:latest .
+	@docker tag thobe/wkhtmltopdf:latest thobe/wkhtmltopdf:$(tag)
 
 build.base: sep ## Build the base image that contains the compiled wkhtmltopdf with patched qt in version 0.12.6
 	@echo "--> Build thobe/wkhtmltopdf-base Docker image"
@@ -16,6 +17,8 @@ build.base: sep ## Build the base image that contains the compiled wkhtmltopdf w
 push.golang-alpine: sep ## Pushes the golang-alpine image with wkhtmltopdf (with patched qt)
 	@echo "--> Push thobe/wkhtmltopdf:$(tag) Docker image"
 	@docker push thobe/wkhtmltopdf:$(tag)
+	@echo "--> Push thobe/wkhtmltopdf:latest Docker image"
+	@docker push thobe/wkhtmltopdf:latest
 
 sep:
 	@echo "----------------------------------------------------------------------------------"
