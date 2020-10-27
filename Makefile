@@ -1,4 +1,4 @@
-tag := 0.12.6-golang1.14_alpine3.12_1
+tag := $(shell git describe --tags --abbrev=0 2> /dev/null)
 
 # This target (taken from: https://gist.github.com/prwhite/8168133) is an easy way to print out a usage/ help of all make targets.
 # For all make targets the text after \#\# will be printed.
