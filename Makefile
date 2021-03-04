@@ -27,6 +27,15 @@ push.base: sep ## Pushes the base image with wkhtmltopdf (with patched qt)
 	@echo "--> Push thobe/wkhtmltopdf-base:latest Docker image"
 	@docker push thobe/wkhtmltopdf-base:latest
 
+dobuild: sep ## Build the base image that contains the compiled wkhtmltopdf with patched qt in version 0.12.6
+	@echo "--> Build golang build image"
+	@docker build -f golang_build.Dockerfile -t thobe/golang-build .
+	@docker tag thobe/golang-build:latest thobe/golang-build:v0.0.1
+
+dopush: sep ## Pushes the base image with wkhtmltopdf (with patched qt)
+	@echo "--> Push thobe/golang-build:v0.0.1 Docker image"
+	@docker push thobe/golang-build:v0.0.1
+
 sep:
 	@echo "----------------------------------------------------------------------------------"
 
