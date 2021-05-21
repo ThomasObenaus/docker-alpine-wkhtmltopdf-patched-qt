@@ -169,6 +169,6 @@ RUN make install              \
 RUN sha256sum /bin/wkhtmltopdf
 
 
-FROM alpine:3.12
+FROM alpine:3.13
 
 COPY --from=build /bin/wkhtmltopdf /bin/wkhtmltopdf

@@ -1,6 +1,6 @@
 
 FROM thobe/wkhtmltopdf-base:latest as wkhtmltopdf
-FROM golang:1.14.13-alpine
+FROM golang:1.15.8-alpine3.13
 
 ARG git_revision
 
